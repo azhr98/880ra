@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 
 <html lang="ja">
+</div>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width">
         <meta name="robots" content="noindex">
         <title>ゲーム</title>
+
 
         
     </head>
@@ -51,7 +54,27 @@
           <br>
 
 
-					<script type="text/javascript">
+          <script type="text/javascript">
+            function determineRank() {
+              var inputValue = document.getElementById("numberInput").value;
+              var rank;
+          
+              if (inputValue >= 9) {
+                rank = "1級";
+              } else if (inputValue >= 7) {
+                rank = "2級";
+              } else if (inputValue >= 5) {
+                rank = "3級";
+              } else if (inputValue >= 3) {
+                rank = "4級";
+              } else {
+                rank = "5級";
+              }
+          
+              document.getElementById("rankDisplay").innerText = "ランク: " + rank;
+            }
+
+					
 						//問題と解答
 						qa = new Array();
 						qa[0] = ["ちいかわの正式名称は？","なんかちいさくてかわいいやつ","なんかちいさくてかわみたいなやつ","なんかちいちゃくてかわいいやつ",1];
@@ -128,6 +151,7 @@
 							s += "</tr>";
 							s += "</table>";
 							document.getElementById("text_q").innerHTML = s;
+
 							//次の選択肢
 							s = "【<a href='javascript:setReady()'>同じ問題を最初から</a>】";
 							/* s += "【<a href='javascript:history.back()'>前のページに戻る</a>】"; */
@@ -135,16 +159,37 @@
 							document.getElementById("text_s").innerHTML = s;
 						  }
 						}
-					   </script>
+
+             // 別のJavaScriptの処理が終了した後、数値ランク判定を表示
+  window.onload = function() {
+    // 例: 5秒後に数値ランク判定を表示
+    setTimeout(function() {
+      document.getElementById("rankSection").style.display = "block";
+    }, 10000); // 5000ミリ秒 = 5秒
+  };
+</script>
+
+             
 
 				</section>
 
+        <div id="rankSection" style="display: none;">
+    <h2>ランク判定</h2>
+    <label for="numberInput">正答数を入力してください:</label>
+    <input type="number" id="numberInput">
+    <button onclick="determineRank()">判定</button>
+    <div id="rankDisplay"></div>
+  </div>
+
+  <br>
+  <br>
+  <br>
 
 
 
 
        <center>
-        <div class="button1"><a href="kekka.html" class="btn-flat-dashed-filled">ランクチェック</a></div>
+        <div class="button1"><a href="kekka.html" class="btn-flat-dashed-filled">解説・各種リンク</a></div>
 
         </center>
 
@@ -327,9 +372,7 @@ a:active {
 	color: inherit;
 	text-decoration: none;
 }
-input {
-  display: none;
-}
+
 .cp_fullscreenmenu {
 	position: fixed;
 	z-index: 1;
