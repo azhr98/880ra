@@ -5,19 +5,16 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="robots" content="noindex">
-        <title>ランク</title>  
+        <title>ランク</title>
+
+        
     </head>
 
     <header>
         <h3><a href="chiikawaquiz3.html">ちいかわ検定</a></h3>
-        <nav class="gnav">
-            <ul class="menu">
-                <li><a href="rule.html">ルール説明</a></li>
-                <li><a href="game.html">ゲームをはじめる！</a></li>
-            </ul>
-        </nav>
     </header>
     
+
     <body bgcolor="" text="#8b4513">
 
 
@@ -33,6 +30,9 @@
                 <td>　</td>
                 <td>　</td>
 								<th>ランク</th>
+                <td>　</td>
+                <td>　</td>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -46,30 +46,45 @@
                 <td>　</td>
                 <td>　</td>
 								<td>1級</td>
+                <td>　</td>
+                <td>　</td>
+								<th>ちいかわガチ勢</th>
 							</tr>
 							<tr>
 								<td>7〜8問</td>
                 <td>　</td>
                 <td>　</td>
 								<td>2級</td>
+                <td>　</td>
+                <td>　</td>
+								<th>ちいかわマニア</th>
 							</tr>
 							<tr>
 								<td>5〜6問</td>
                 <td>　</td>
                 <td>　</td>
 								<td>3級</td>
+                <td>　</td>
+                <td>　</td>
+								<th>ちいかわ愛好家</th>
 							</tr>
 							<tr>
 								<td>3〜4問</td>
                 <td>　</td>
                 <td>　</td>
 								<td>4級</td>
+                <td>　</td>
+                <td>　</td>
+								<th>ちいかわファン</th>
 							</tr>
 							<tr>
 								<td>0〜2問</td>
                 <td>　</td>
                 <td>　</td>
 								<td>5級</td>
+                <td>　</td>
+                <td>　</td>
+								<th>ちいかわ初心者</th>
 							</tr>
 							
 							
@@ -80,32 +95,6 @@
         </h3>
         </center>
 
-
-        <script>
-          function determineRank() {
-            var inputValue = document.getElementById("numberInput").value;
-            var rank;
-        
-            if (inputValue >= 9) {
-              rank = "1級";
-            } else if (inputValue >= 7) {
-              rank = "2級";
-            } else if (inputValue >= 5) {
-              rank = "3級";
-            } else if (inputValue >= 3) {
-              rank = "4級";
-            } else {
-              rank = "5級";
-            }
-        
-            document.getElementById("rankDisplay").innerText = "ランク: " + rank;
-          }
-        </script>
-
-        <label for="numberInput">正答数を入力してください:</label>
-        <input type="number" id="numberInput">
-        <button onclick="determineRank()">判定</button>
-        <div id="rankDisplay"></div>
 
 
         <br>
@@ -140,7 +129,26 @@
           </h3>
 
 
+        
+  
+
     </body>
+
+    <div class="cp_fullscreenmenu">
+      <input type="checkbox" id="menuToggle" />
+      
+      <label for="menuToggle" class="hamburger">
+      <div class="open"></div>
+      </label>
+      
+      <div class="menu menuEffects">
+      <label for="menuToggle"></label>
+      <div class="menucont">
+          <ul>
+              <li><a href="rule.html">ルール説明</a></li>
+              <li><a href="game.html">ゲームをはじめる！</a></li>
+          </ul>
+      </div>
 
     <footer>
         &copy; 2024 azhr98
@@ -313,6 +321,10 @@ a:hover,
 a:active {
 	color: inherit;
 	text-decoration: none;
+}
+
+input {
+  display: none;
 }
 
 .cp_fullscreenmenu {
@@ -488,8 +500,6 @@ main {
     height: 100vw; /* スクロールの演出を見れるようにmainに高さを指定 */
 }
 
-        
 </style>
-
 
 </html>
